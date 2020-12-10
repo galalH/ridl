@@ -42,23 +42,23 @@ package_metadata(
 )
 }
 \arguments{
-\item{title}{Title - Make sure to include: 'Survey name/title', 'Location', 'Country', and 'Year(s)' in the order indicated.}
+\item{title}{Title(*) - Make sure to include: 'Survey name/title', 'Location', 'Country', and 'Year(s)' in the order indicated.}
 
-\item{name}{URL - The canonical name of the dataset, eg. my-dataset.}
+\item{name}{URL(*) - The canonical name of the dataset, eg. my-dataset.}
 
 \item{short_title}{Short title - eg. Short title for the project.}
 
-\item{notes}{Description - Some useful notes about the data. Please include the number of observations.}
+\item{notes}{Description(*) - Some useful notes about the data. Please include the number of observations.}
 
 \item{tag_string}{Tags - eg. economy, mental health, government.}
 
 \item{url}{Project URL - Website URL associated with this data project (if applicable).}
 
-\item{owner_org}{Data container. Provided using the canonical name for the container.}
+\item{owner_org}{Data container(*) - Use the canonical name for the container.}
 
-\item{private}{Visibility (Private/Public).}
+\item{private}{Visibility (Private/Public)(*).}
 
-\item{visibility}{Internal Access Level. Allowed values: \code{restricted} (Private), \code{public} (Internally Visible).}
+\item{visibility}{Internal Access Level(*). Allowed values: \code{restricted} (Private), \code{public} (Internally Visible).}
 
 \item{external_access_level}{External access level. Allowed values: \code{not_available} (Not available), \code{direct_access} (Direct access), \code{public_use} (Public use), \code{licensed_use} (Licensed use), \code{data_enclave} (Data enclave), \code{open_access} (Open access).}
 
@@ -66,15 +66,15 @@ package_metadata(
 
 \item{original_id}{Original ID - If the dataset already has an ID from the source org, DDI, etc...}
 
-\item{data_collector}{Data Collector - Which organization owns / collected the data. Multiple values are allowed.}
+\item{data_collector}{Data Collector(*) - Which organization owns / collected the data. Multiple values are allowed.}
 
-\item{date_range_start}{Date collection first date.}
+\item{date_range_start}{Date collection first date - Use dd/mm/yyyy format.}
 
-\item{date_range_end}{Date collection last date.}
+\item{date_range_end}{Date collection last date - Use dd/mm/yyyy format.}
 
-\item{keywords}{Topic classifications - Tags useful for searching for the datasets. Multiple values are allowed.}
+\item{keywords}{Topic classifications(*) - Tags useful for searching for the datasets. Multiple values are allowed. See \code{\link{keywords}}}
 
-\item{unit_of_measurement}{Unit of measurement - Unit of measurement / observation for the dataset.}
+\item{unit_of_measurement}{Unit of measurement(*) - Unit of measurement / observation for the dataset.}
 
 \item{sampling_procedure}{Sampling Procedure. Multiple values are allowed. Allowed values: \code{total_universe_complete_enumeration} (Total universe/Complete enumeration), \code{probability_simple_random} (Probability: Simple random), \code{probability_systematic_random} (Probability: Systematic random), \code{probability_stratified} (Probability: Stratified), \code{probability_stratified_proportional} (Probability: Stratified: Proportional), \code{probability_stratified_disproportional} (Probability: Stratified: Disproportional), \code{probability_cluster} (Probability: Cluster), \code{probability_cluster_simple_random} (Probability: Cluster: Simple random ), \code{probability_cluster_stratified_random} (Probability: Cluster: Stratified random), \code{probability_multistage} (Probability: Multistage), \code{nonprobability} (Non-probability), \code{nonprobability_availability} (Non-probability: Availability), \code{nonprobability_purposive} (Non-probability: Purposive), \code{nonprobability_quota} (Non-probability: Quota), \code{nonprobability_respondentassisted} (Non-probability: Respondent-assisted), \code{mixed_probability_nonprobability} (Mixed probability and non-probability), \code{other_other} (Use if the sampling procedure is known, but not found in the list..).}
 
@@ -86,11 +86,11 @@ package_metadata(
 
 \item{geog_coverage}{Geographic Coverage - eg. National coverage, or name of the area, etc.}
 
-\item{data_collection_technique}{Data collection technique. Allowed values: \code{nf} (Not specified), \code{f2f} (Face-to-face interview), \code{capi} (Face-to-face interview: Computerised), \code{cami} (Face-to-face interview: Mobile), \code{papi} (Face-to-face interview: Paper-and-pencil), \code{tri} (Telephone interview), \code{eri} (E-mail interview), \code{wri} (Web-based interview: audio-visual technology enabling the interviewer(s) and interviewee(s) to communicate in real time), \code{easi} (Self-administered questionnaire: E-mail), \code{pasi} (Self-administered questionnaire: Paper), \code{sasi} (Self-administered questionnaire: SMS/MMS), \code{casi} (Self-administered questionnaire: Computer-assisted), \code{cawi} (Self-administered questionnaire: Web-based), \code{foc} (Face-to-face focus group), \code{tfoc} (Telephone focus group), \code{obs} (Observation), \code{oth} (Other).}
+\item{data_collection_technique}{Data collection technique(*). Allowed values: \code{nf} (Not specified), \code{f2f} (Face-to-face interview), \code{capi} (Face-to-face interview: Computerised), \code{cami} (Face-to-face interview: Mobile), \code{papi} (Face-to-face interview: Paper-and-pencil), \code{tri} (Telephone interview), \code{eri} (E-mail interview), \code{wri} (Web-based interview: audio-visual technology enabling the interviewer(s) and interviewee(s) to communicate in real time), \code{easi} (Self-administered questionnaire: E-mail), \code{pasi} (Self-administered questionnaire: Paper), \code{sasi} (Self-administered questionnaire: SMS/MMS), \code{casi} (Self-administered questionnaire: Computer-assisted), \code{cawi} (Self-administered questionnaire: Web-based), \code{foc} (Face-to-face focus group), \code{tfoc} (Telephone focus group), \code{obs} (Observation), \code{oth} (Other).}
 
 \item{linked_datasets}{Linked Datasets - Links to other RIDL datasets. It supports multiple selections.}
 
-\item{archived}{Archived - Allows users to indicate if the dataset is archived or active. Allowed values: \code{False} (No), \code{True} (Yes).}
+\item{archived}{Archived(*) - Allows users to indicate if the dataset is archived or active. Allowed values: \code{False} (No), \code{True} (Yes).}
 
 \item{admin_notes}{Admin Notes - General. You can use Markdown formatting here.}
 
@@ -114,8 +114,10 @@ package_metadata(
 A list with the provided metadata.
 }
 \description{
-Convenience function to record package metadata
+
 }
 \details{
 All arguments are of type character, except for \code{tag_string}, \code{data_collector}, \code{keywords}, \code{sampling_procedure}, and \code{operational_purpose_of_data} which accept multiple values and as such must be provided as a list of character strings.
+
+Fields marked with a (*) are required for \code{\link{package_create()}} and \code{\link{package_update()}} operations.
 }

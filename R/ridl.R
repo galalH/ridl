@@ -2,10 +2,11 @@
 #'
 #' @description
 #'
-#' @param action Operation to execute. See [CKAN's API documentation](https://docs.ckan.org/en/2.9/api/) for details.
-#' @param ...
+#' @name apihelper
 #'
-#' @return httr::response object with the result of the call.
+#' @param action Operation to execute. See [CKAN's API documentation](https://docs.ckan.org/en/2.9/api/) for details.
+#'
+#' @return `httr::response` object with the result of the call.
 #' @export
 ridl <- function(action, ...) {
   r <-
@@ -15,7 +16,7 @@ ridl <- function(action, ...) {
     httr::content(simplifyVector = TRUE)
 
   if (r$success)
-    purrr::pluck(r, "result") %>% tibble::as_tibble()
+    purrr::pluck(r, "result")
   else
     stop(r$error %>%
            purrr::imap(~glue::glue("{.y}: {.x}")) %>%

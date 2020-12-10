@@ -33,6 +33,8 @@ Work with RIDL datasets (packages)
 \details{
 You must have the necessary permissions to create, edit, or delete packages.
 
+Note that several fields are required for \code{package_create()} and \code{package_update()} operations to succeed. Consult \code{\link{package_metadata()}} for the details.
+
 For \code{package_update()}/\code{package_patch()} operations, it is recommended to call \code{package_show()}, make the desired changes to the result, and then call \code{package_update()}/\code{package_patch()} with it.
 
 The difference between the update and patch methods is that the patch will perform an update of the provided parameters, while leaving all other parameters unchanged, whereas the update methods deletes all parameters not explicitly provided in the \code{metadata}.
